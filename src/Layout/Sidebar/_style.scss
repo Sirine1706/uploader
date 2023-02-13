@@ -1,0 +1,48 @@
+/** @format */
+
+@import "../../assets/scss/utilities/mixins";
+@import "../../assets//scss/utilities/variables";
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+
+  .logo-rotation {
+    // transform: rotate(360deg) ease;
+  }
+  label {
+    font-weight: 300;
+    font-size: 17px;
+    @include bg-icon($darker_purple);
+    cursor: pointer;
+    padding: 22px 51px;
+
+    img {
+      margin-right: 10px;
+    }
+    input {
+      display: none;
+    }
+    display: flex;
+    align-items: center;
+  }
+
+  .link {
+    display: flex;
+    margin-bottom: 1.8rem;
+    color: $darker-grey;
+
+    p {
+      margin-left: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+  }
+  
+}
+// .hidden {
+//   display: none;
+// } 

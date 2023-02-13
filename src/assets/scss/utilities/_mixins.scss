@@ -1,0 +1,80 @@
+@function rem($pxValue) {
+  @return #{calc($pxValue / 16)}rem;
+}
+@mixin box-shadow($left, $top, $radius, $color) {
+  box-shadow: $left $top $radius $color;
+  -webkit-box-shadow: $left $top $radius $color;
+  -moz-box-shadow: $left $top $radius $color;
+}
+@mixin box-shadow4($offsetx, $offsety, $blur-radius, $spread-radius, $color) {
+  box-shadow: $offsetx $offsety $blur-radius $spread-radius $color;
+  -webkit-box-shadow: $offsetx $offsety $blur-radius $spread-radius $color;
+  -moz-box-shadow: $offsetx $offsety $blur-radius $spread-radius $color;
+}
+@mixin transition($property, $duration, $easing: linear) {
+  transition: $property $duration $easing;
+  -webkit-transition: $property $duration $easing;
+  -moz-transition: $property $duration $easing;
+}
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+@mixin fade($type) {
+  @if $type =='hide' {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 1s, opacity 1s;
+  }
+  @else if $type =='show' {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1s, opacity 1s;
+  }
+}
+@mixin center($position:'both') {
+  position: absolute;
+  @if $position =='vertical' {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+  }
+  @else if $position =='horizontal' {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translate(-50%);
+  }
+  @else if $position =='both' {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  }
+}
+@mixin bg-cover($url) {
+  background: url($url) no-repeat center center fixed;
+  background-size: cover;
+}
+@mixin img-cover {
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@mixin bg-icon($darker_purple) {
+  color: #FFFF;
+  @include border-radius(20px);
+  background-color: $darker_purple;
+}
+@mixin bg-icon-outlined($darker_purple) {
+  color: $dark-grey;
+  border: 2px solid $darker_purple;
+  @include border-radius(10px);
+  background-color: #FFFF;
+  padding: 16px 25px;
+}

@@ -1,0 +1,14 @@
+/** @format */
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .layout_left_side {
+    width: 20%;
+  }
+  .layout_right_side {
+    width: 80%;
+    flex-grow: 1;
+  }
+}

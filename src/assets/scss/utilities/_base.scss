@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+html{
+  scroll-behavior: smooth;
+  // overflow-x: hidden;
+  // font-size: 62.5%; 
+}
+body {
+   font-family: 'Poppins', sans-serif;
+}
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: 'Poppins', sans-serif;
+  //  border: 1px solid $sky-blue;
+}
+input,
+textarea,
+button {
+   outline: none;
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+}
+a {
+   text-decoration: none;
+   color: inherit;
+}
+ul {
+   list-style: none;
+}
