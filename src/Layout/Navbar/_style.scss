@@ -13,7 +13,7 @@
     flex-grow: 1;
     padding: 1rem 0.5rem;
     margin: 0.5rem;
-    
+
     @include border-radius(20px);
     display: flex;
     align-items: center;
@@ -22,6 +22,7 @@
       margin-left: 0.5rem;
       font-size: 18px;
       font-weight: 400;
+      width: 100%;
     }
   }
   .user-space {
@@ -29,26 +30,28 @@
     flex-grow: 1;
     display: flex;
     align-items: center;
-    .setting, .notification {
-      @include bg-icon-outlined($lighter-grey)
+    .setting,
+    .notification {
+      @include bg-icon-outlined($lighter-grey);
     }
-    .setting:hover{
+    .setting:hover {
       border: 2px solid $dark-grey;
       color: $dark-grey;
-      img{
-        filter: invert(50%) sepia(10%) saturate(46%) hue-rotate(314deg) brightness(89%) contrast(87%);
+      img {
+        filter: invert(50%) sepia(10%) saturate(46%) hue-rotate(314deg)
+          brightness(89%) contrast(87%);
       }
     }
     .setting {
       display: flex;
       align-items: center;
-    margin-left: 32px;
+      margin-left: 32px;
 
       span {
         margin-left: 5px;
       }
     }
-    .profile{
+    .profile {
       display: flex;
       align-items: center;
 
@@ -60,9 +63,9 @@
       }
       .userImg {
         margin-left: 20px;
-       width: 55px;
-       height: 55px;
-       border-radius: 50%; 
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
       }
     }
   }

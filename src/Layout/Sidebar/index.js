@@ -12,6 +12,23 @@ export const Sidebar = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+  let handleChange = (e) => {
+    const filesArray = Object.values(e.target.files);
+    const fileList = filesArray.map((item) => {
+      const { name, type, size, lastModifiedDate } = item;
+      return {
+        name,
+        type,
+        size,
+        createdAt: lastModifiedDate,
+        isStarred: false,
+        isArchived: false,
+        starredAt: null,
+        archivedAt: null,
+      };
+    });
+    console.log(fileList);
+  };
 
   return (
     <div className="sidebar">
@@ -27,7 +44,7 @@ export const Sidebar = () => {
         <label htmlFor="inputTag">
           <img src={uploader} alt="" />
           Upload
-          <input id="inputTag" type="file" multiple />
+          <input onChange={handleChange} id="inputTag" type="file" multiple />
         </label>
       )}
 
