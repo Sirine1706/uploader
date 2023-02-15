@@ -49,3 +49,15 @@ export const documentTypes = [
     color:"#158A00"
   },
 ]
+export const fileHomeHeader = [
+  "Name", "Date Created", "Size"
+] ;
+export const allFilesHeader = [
+  "Name", "Date Created", "Size", "Actions"
+] ;
+export const starredFileHeader = [
+  "Name", "Date Starred", "Size"
+]; 
+export const archivedFileHeader = [
+  "Name", "Date Archived", "Size"
+] ;

@@ -1,0 +1,24 @@
+@import "../../assets/scss/utilities/mixins";
+@import "../../assets/scss/utilities/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  .icon-bg {
+    @include bg-icon(null);
+    padding: 10px ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 30px;
+      filter: brightness(0) invert(1);
+    }
+  }
+  .docs-title {
+    font-size: 50px;
+    font-weight: 600;
+  }
+}

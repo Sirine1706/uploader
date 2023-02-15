@@ -1,19 +1,27 @@
 /** @format */
-import files from "../mocks/uploadedFiles"
+import uploadedFiles from "../mocks/uploadedFiles";
 import { createSlice } from "@reduxjs/toolkit";
-console.log(files)
+
+
 const initialState = {
-  fileList: [],
+  fileList: uploadedFiles,
 };
 
 const fileSlice = createSlice({
   name: "files",
   initialState,
   reducers: {
-    addFile: () => {},
-    archivedFile: () => {},
-    starredFile: () => {},
-    removeFromArchive: () => {},
-    removeFromStarred: () => {},
+    // addFile: (state) => {
+    //   state.fileList;
+    // },
+    // archivedFile: () => {},
+    // starredFile: () => {},
+    // removeFromArchive: () => {},
+    // removeFromStarred: () => {},
   },
 });
+console.log(fileSlice);
+
+export const { addFile } = fileSlice.actions;
+
+export default fileSlice.reducer;

@@ -6,6 +6,7 @@ import { useState } from "react";
 import Logo from "../../assets/images/icons/uploaderLogo.svg";
 import Links from "../../constant";
 import uploader from "../../assets/images/icons/uploadericon.svg";
+import { NavLink } from "react-router-dom";
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ export const Sidebar = () => {
     const filesArray = Object.values(e.target.files);
     const fileList = filesArray.map((item) => {
       const { name, type, size, lastModifiedDate } = item;
+      console.log(type);
       return {
         name,
         type,
@@ -27,7 +29,6 @@ export const Sidebar = () => {
         archivedAt: null,
       };
     });
-    console.log(fileList);
   };
 
   return (
@@ -53,10 +54,10 @@ export const Sidebar = () => {
           {Links.map((item, index) => {
             const { path, icon, page } = item;
             return (
-              <a className="link" key={`link-${index}`} href={path}>
+              <NavLink to={path} className="link" key={`link-${index}`}>
                 <img src={icon} alt="page_icon" />
                 <p>{page}</p>
-              </a>
+              </NavLink>
             );
           })}
         </nav>

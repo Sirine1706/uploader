@@ -10,7 +10,12 @@
   flex-wrap: wrap;
 
   .document {
+    margin: 0.5rem;
     flex-grow: 1;
+    background: $lighter-grey;
+    padding: 1rem;
+    border-radius: 19px;
+
     .img-container {
       width: 75px;
       display: flex;

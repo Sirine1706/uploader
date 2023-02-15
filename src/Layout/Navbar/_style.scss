@@ -4,16 +4,16 @@
 @import "../../assets/scss/utilities/variables";
 
 .navbar {
+  margin-right: 2rem;
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   .search {
-    flex-grow: 1;
+    width: 55%;
     padding: 1rem 0.5rem;
     margin: 0.5rem;
-
     @include border-radius(20px);
     display: flex;
     align-items: center;
@@ -27,7 +27,6 @@
   }
   .user-space {
     margin-left: 32px;
-    flex-grow: 1;
     display: flex;
     align-items: center;
     .setting,

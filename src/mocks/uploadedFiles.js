@@ -2,8 +2,7 @@
 
 export default [
   {
-    archivedAt:
-      "Tue Feb 14 2023 16:22:52 GMT+0100 (Central European Standard Time)",
+    archivedAt: "Tue Feb 14 2023 16:22:52 ",
     createdAt:
       "Tue Feb 14 2023 16:22:27 GMT+0100 (Central European Standard Time)",
     id: "kfqshrV2vN",

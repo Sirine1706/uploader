@@ -1,0 +1,26 @@
+/** @format */
+
+@import "../../assets/scss/utilities/mixins";
+@import "../../assets/scss/utilities/variables";
+
+table {
+  border-collapse: collapse; // eviter les rupture entre les lignes
+  th {
+    color: $soft-grey;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+  }
+  .file {
+    .file_name{
+      display: flex;
+      align-items: center;
+    }
+    td {
+      text-align: right center;
+      border-bottom: 1px solid $dark-grey;
+      padding: 5px ;
+      gap: 5px;
+    }
+  }
+}
