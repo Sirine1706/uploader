@@ -14,13 +14,14 @@ export const DocumentTable = ({
   starred,
   removed,
   archived,
+  className
 }) => {
   return (
     <table>
       <thead>
         <tr>
           {headerItems?.map((item, index) => {
-            return <th className={index === 0 ? "name" : ""} key={`tHeader-${index}`}> {item} </th>;
+            return <th key={`tHeader-${index}`}> {item} </th>;
           })}
         </tr>
       </thead>

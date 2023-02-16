@@ -5,7 +5,6 @@ import search from "../../assets/images/icons/Search.svg";
 import setting from "../../assets/images/icons/Settings.svg";
 import notificationBell from "../../assets/images/icons/NotificationBell.svg";
 import "./_style.scss"
-import userImg from "../../assets/images/mazen.jpeg";
 
 export const Navbar = () => {
   return (
@@ -21,8 +20,8 @@ export const Navbar = () => {
           <span>8</span>
         </div>
         <div className="profile">
-          <span>Mazen</span>
-          <img className="userImg" src={userImg} alt="user_img" />
+          <span>Sirine</span>
+          <div className="user"><div></div></div>
         </div>
       </div>
     </div>

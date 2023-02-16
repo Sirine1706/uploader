@@ -7,13 +7,13 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 7rem;
+  gap: 1rem;
 
   .document {
     background: #f2f2f7;
-    padding: 1rem;
+    padding: 1rem 2rem;
     border-radius: 19px;
-    width: 21%;
+    width: 25%;
 
     .img-container {
       width: 75px;
@@ -31,12 +31,12 @@
     .type {
       font-size: 21px;
       font-weight: 600;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
     }
     .recipient {
-      width: 250px;
+      width: 80%;
       background-color: $light-grey;
-      height: 14px;
+      height: 16px;
       border-radius: 12px;
       .level {
         height: 100%;
