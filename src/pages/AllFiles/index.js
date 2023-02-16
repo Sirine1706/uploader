@@ -9,7 +9,9 @@ import { DocumentTable } from "../../components/DocumentTable";
 import { allFilesHeader } from "../../constant";
 import { useSelector } from "react-redux";
 
+
 export const AllFiles = () => {
+
   const {fileList} = useSelector((store) => store.files)
   console.log(fileList, "file page")
   const files = fileList.map((item) => {
