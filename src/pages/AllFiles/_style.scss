@@ -1,0 +1,13 @@
+/** @format */
+
+@import "../../assets/scss/utilities/mixins";
+@import "../../assets/scss/utilities/variables";
+
+.allfiles {
+  .page-header {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

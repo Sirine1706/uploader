@@ -2,7 +2,6 @@
 import uploadedFiles from "../mocks/uploadedFiles";
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   fileList: uploadedFiles,
 };

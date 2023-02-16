@@ -1,11 +1,9 @@
-@import "../../assets/scss/utilities/mixins";
-@import "../../assets/scss/utilities/variables";
 
 .header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 1rem 0;
+  margin: 1rem 1rem;
   .icon-bg {
     @include bg-icon(null);
     padding: 10px ;

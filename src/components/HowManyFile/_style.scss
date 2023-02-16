@@ -1,0 +1,33 @@
+@import "../../assets/scss/utilities/mixins";
+@import "../../assets/scss/utilities/variables";
+
+.box {
+  background-color: $lighter-grey;
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 40%;
+  height: 10rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  .icon_container {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+
+    img{
+      width: 30px;
+      filter: brightness(0) invert(1);
+    }
+  }
+  p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .path {
+    color: #6d7090;
+    font-weight: 500;
+  }
+}

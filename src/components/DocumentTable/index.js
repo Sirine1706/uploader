@@ -1,7 +1,6 @@
 /** @format */
 
 import React from "react";
-import "./_style.scss";
 import file from "../../assets/images/icons/fileType.svg";
 import image from "../../assets/images/icons/imageType.svg";
 import video from "../../assets/images/icons/videoType.svg";
@@ -21,12 +20,12 @@ export const DocumentTable = ({
       <thead>
         <tr>
           {headerItems?.map((item, index) => {
-            return <th key={`tHeader-${index}`}> {item} </th>;
+            return <th className={index === 0 ? "name" : ""} key={`tHeader-${index}`}> {item} </th>;
           })}
         </tr>
       </thead>
       <tbody>
-        {fileList.map((item, index) => {
+        {fileList?.map((item, index) => {
           const { name, size, type, createdAt, starredAt, archivedAt } = item;
           const typeFile = type.substring(0, type.indexOf("/"));
 
@@ -34,24 +33,24 @@ export const DocumentTable = ({
             <tr className="file" key={`file-${index}`}>
               <td className="file_name">
                 {(typeFile === "application" || typeFile === "text") && (
-                  <img src={file} alt="file-icon" />
+                  <img src={file} style={{filter:' invert(13%) sepia(73%) saturate(6964%) hue-rotate(265deg) brightness(88%) contrast(116%)'}} alt="file-icon" />
                 )}
-                {typeFile === "image" && <img src={image} alt="image-icon" />}
-                {typeFile === "video" && <img src={video} alt="video-icon" />}
+                {typeFile === "image" && <img src={image} style={{    filter: 'invert(25%) sepia(100%) saturate(5133%) hue-rotate(206deg) brightness(92%) contrast(104%)'}}  alt="image-icon" />}
+                {typeFile === "video" && <img src={video} style={{    filter: 'invert(31%) sepia(81%) saturate(1208%) hue-rotate(88deg) brightness(97%) contrast(106%)'}} alt="video-icon" />}
                 {name}
               </td>
               {createdAt && <td>{createdAt}</td>}
               {starredAt && <td false>{starredAt}</td>}
               {archivedAt && <td false>{archivedAt}</td>}
               <td>{size}</td>
-              <td>
+              <td className="actions">
                 {removed && (
                   <div>
-                    <img src={trash} alt="trash-icon" />
+                    <img src={trash} width="26px" alt="trash-icon" />
                   </div>
                 )}
                 {starred && (
-                  <div>
+                  <div style={{background:"#eaac30"}}>
                     <img src={star} alt="star-icon" />
                   </div>
                 )}

@@ -4,17 +4,16 @@
 @import "../../assets/scss/utilities/variables";
 
 .document_container {
-  width: 60%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 7rem;
 
   .document {
-    margin: 0.5rem;
-    flex-grow: 1;
-    background: $lighter-grey;
+    background: #f2f2f7;
     padding: 1rem;
     border-radius: 19px;
+    width: 21%;
 
     .img-container {
       width: 75px;

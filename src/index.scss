@@ -1,4 +1,10 @@
+/** @format */
+
 @import "./assets/scss/utilities/base";
 @import "./assets/scss/utilities/fonts";
 @import "./assets/scss/utilities/mixins";
 @import "./assets/scss/utilities/variables";
+@import "./components/Header/style";
+@import "./components/DocumentCard/style";
+@import "./components/DocumentTable/style";
+@import "./components/HowManyFile/style";

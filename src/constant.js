@@ -56,8 +56,8 @@ export const allFilesHeader = [
   "Name", "Date Created", "Size", "Actions"
 ] ;
 export const starredFileHeader = [
-  "Name", "Date Starred", "Size"
+  "Name", "Date Starred", "Size", "Actions"
 ]; 
 export const archivedFileHeader = [
-  "Name", "Date Archived", "Size"
+  "Name", "Date Archived", "Size","Actions"
 ] ;
