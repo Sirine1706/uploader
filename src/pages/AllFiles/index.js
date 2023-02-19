@@ -11,12 +11,13 @@ import { useSelector } from "react-redux";
 
 export const AllFiles = () => {
   const { fileList } = useSelector((store) => store.files);
-  console.log(fileList, "file page");
+
   const files = fileList.map((item) => {
-    const { name, size, createdAt, type } = item;
-    return { name, size, createdAt, type };
+    const { name, size, createdAt, type, id } = item;
+    return { name, size, createdAt, type, id };
+
   });
-  console.log(files, "after filter");
+  
   return (
     <div className="allfiles">
       <div className="page-header">

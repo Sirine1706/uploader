@@ -8,15 +8,17 @@ import SortSelect from "../../components/SortSlect";
 import { DocumentTable } from "../../components/DocumentTable";
 import { starredFileHeader } from "../../constant";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export const Starred = () => {
   const { fileList } = useSelector((store) => store.files);
-  console.log(fileList, "file page");
-  const files = fileList.filter((item) => item.isStarred === true).map((item) => {
-    const { name, size, createdAt, type } = item;
-    return { name, size, createdAt, type };
-  });
-  console.log(files, "after filter");
+  const files = fileList
+    .filter((item) => item.isStarred === true)
+    .map((item) => {
+      const { name, size, createdAt, type, id } = item;
+      return { name, size, createdAt, type, id };
+    });
+  console.log(files)
   return (
     <div className="allfiles">
       <div className="page-header">
@@ -24,6 +26,7 @@ export const Starred = () => {
         <SortSelect files={files} />
       </div>
       <DocumentTable
+        width={"59.5%"}
         removed={true}
         headerItems={starredFileHeader}
         fileList={files}

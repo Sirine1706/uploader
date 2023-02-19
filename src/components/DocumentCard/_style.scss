@@ -3,12 +3,6 @@
 @import "../../assets/scss/utilities/mixins";
 @import "../../assets/scss/utilities/variables";
 
-.document_container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-
   .document {
     background: #f2f2f7;
     padding: 1rem 2rem;
@@ -45,4 +39,4 @@
       }
     }
   }
-}
+

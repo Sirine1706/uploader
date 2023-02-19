@@ -6,7 +6,7 @@ export default [
     createdAt:
       "Tue Feb 14 2023 16:22:27 GMT+0100 (Central European Standard Time)",
     id: "kfqshrV2vN",
-    isArchived: true,
+    isArchived: false,
     isStarred: true,
     name: "fi_bell.svg",
     size: 691,

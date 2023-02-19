@@ -1,6 +1,9 @@
 .home {
   margin: 1.6rem 2rem;
-
+  .document_container {
+    display: flex;
+    gap: 1rem;
+  }
   .home-bottom {
     display: flex;
     flex-wrap: wrap;

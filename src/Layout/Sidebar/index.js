@@ -7,28 +7,33 @@ import Logo from "../../assets/images/icons/uploaderLogo.svg";
 import Links from "../../constant";
 import uploader from "../../assets/images/icons/uploadericon.svg";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addFile } from "../../slices/fileSlice";
+import { day } from "../../utilities/date";
 
 export const Sidebar = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
   let handleChange = (e) => {
     const filesArray = Object.values(e.target.files);
-    const fileList = filesArray.map((item) => {
-      const { name, type, size, lastModifiedDate } = item;
-      console.log(type);
+    const newFileList = filesArray.map((item) => {
+      const { name, type, size } = item;
       return {
         name,
         type,
         size,
-        createdAt: lastModifiedDate,
+        id: name + "sdsdvd5665",
+        createdAt: day(),
         isStarred: false,
         isArchived: false,
         starredAt: null,
         archivedAt: null,
       };
     });
+    dispatch(addFile(newFileList));
   };
 
   return (

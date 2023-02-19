@@ -11,12 +11,12 @@ import { useSelector } from "react-redux";
 
 export const Archived = () => {
   const { fileList } = useSelector((store) => store.files);
-  console.log(fileList, "file page");
-  const files = fileList.filter((item) => item.isArchived === true).map((item) => {
-    const { name, size, createdAt, type } = item;
-    return { name, size, createdAt, type };
-  });
-  console.log(files, "after filter");
+  const files = fileList
+    .filter((item) => item.isArchived === true)
+    .map((item) => {
+      const { name, size, createdAt, type, id } = item;
+      return { name, size, createdAt, type, id };
+    });
   return (
     <div className="allfiles">
       <div className="page-header">
@@ -24,6 +24,7 @@ export const Archived = () => {
         <SortSelect files={files} />
       </div>
       <DocumentTable
+        width={"59.5%"}
         removed={true}
         headerItems={archivedFileHeader}
         fileList={files}
