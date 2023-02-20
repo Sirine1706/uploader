@@ -1,32 +1,33 @@
 /** @format */
 
 import React from "react";
-import { documentTypes } from "../../constant";
+import { bytesToSize } from "../../utilities/conversion";
 
-export const DocumentCard = ({ totalSpace, usedSpace, fileList, color, type, icon }) => {
-
-        const percentage = 45;
-        return (
-          <div className="document" >
-            <div
-              style={{ backgroundColor: `${color}` }}
-              className="img-container">
-              <img src={icon} alt="document-icon" />
-            </div>
-            <p className="type"> {type} </p>
-            <div>
-              <div className="recipient">
-                <div
-                  className="level"
-                  style={{
-                    backgroundColor: `${color}`,
-                    width: `${percentage}%`,
-                  }}></div>
-              </div>
-              <p>
-                <span>{percentage}%</span> {usedSpace} of {totalSpace} Used
-              </p>
-            </div>
-          </div>
-        );
+export const DocumentCard = ({ totalSpace, usedSpace, color, type, icon }) => {
+  const percentage = ((usedSpace * 100) / totalSpace).toFixed(0);
+  return (
+    <div className="document">
+      <div style={{ backgroundColor: `${color}` }} className="img-container">
+        <img src={icon} alt="document-icon" />
+      </div>
+      <p className="type"> {type} </p>
+      <div>
+        <div className="recipient">
+          <div
+            className="level"
+            style={{
+              backgroundColor: `${color}`,
+              width: `${percentage}%`,
+            }}></div>
+        </div>
+        <p>
+          {percentage}%
+          <span>
+            {" "}
+            {bytesToSize(usedSpace)} of {bytesToSize(totalSpace)} Used
+          </span>
+        </p>
+      </div>
+    </div>
+  );
 };

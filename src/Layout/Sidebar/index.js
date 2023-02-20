@@ -7,12 +7,16 @@ import Logo from "../../assets/images/icons/uploaderLogo.svg";
 import Links from "../../constant";
 import uploader from "../../assets/images/icons/uploadericon.svg";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFile } from "../../slices/fileSlice";
 import { day } from "../../utilities/date";
+import { toast } from "react-toastify";
+import { fileType } from "../../utilities/fileType";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
+  const { spaceUsedDocument, spaceUsedImage, spaceUsedVideo } =
+    useSelector((store) => store.files);
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -33,7 +37,36 @@ export const Sidebar = () => {
         archivedAt: null,
       };
     });
-    dispatch(addFile(newFileList));
+    newFileList.map((file) => {
+      let fType = fileType(file.type);
+      if (
+        (fType === "text" || fType === "application") &&
+        file.size + spaceUsedDocument <= 5 * 1024 ** 2
+      ) {
+        dispatch(addFile(file));
+      } else if ((
+        (fType === "image") &&
+        file.size + spaceUsedImage <= 50 * 1024 ** 2
+      )) {
+        dispatch(addFile(file));
+      } else if ((
+        (fType === "video") &&
+        file.size + spaceUsedVideo <= 5 * 1024 ** 3
+      )) {
+        dispatch(addFile(file));
+      } else {
+        toast('❌ No space left on Documents storage', {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      }
+    });
   };
 
   return (

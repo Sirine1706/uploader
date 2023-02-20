@@ -4,14 +4,12 @@
 @import "../../assets//scss/utilities/variables";
 
 .sidebar {
+  width: 270px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
   padding: 2rem;
 
-  .logo-rotation {
-    // transform: rotate(360deg) ease;
-  }
   label {
     font-weight: 300;
     font-size: 17px;
