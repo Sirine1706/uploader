@@ -7,7 +7,7 @@ import video from "../../assets/images/icons/videoType.svg";
 import archive from "../../assets/images/icons/aarchived.svg";
 import star from "../../assets/images/icons/starred.svg";
 import trash from "../../assets/images/icons/delete.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   archivedFile,
   removeFromArchive,
@@ -26,9 +26,39 @@ export const DocumentTable = ({
   archived,
   width,
 }) => {
+  const { searchBar, sort } = useSelector((store) => store);
+  const { searchInput } = searchBar;
+  const { value } = sort;
+
   const location = useLocation();
   const pathname = location.pathname.split("/").reverse()[0];
   const dispatch = useDispatch();
+  const filteredFiles = fileList.filter((file) => {
+    if (searchInput === "") {
+      return file;
+    } else if (file.name.toLowerCase().includes(searchInput.toLowerCase())) {
+      return file;
+    }
+  });
+
+  if (value === "name") {
+    filteredFiles.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (value === "size") {
+    filteredFiles.sort(function (a, b) {
+      return b.size - a.size;
+    });
+  } else {
+    if (pathname === "starred") {
+      filteredFiles.sort((a, b) => a.starredAt - b.starredAt);
+    } else if (pathname === "archived") {
+      filteredFiles.sort((a, b) => a.archivedAt - b.archivedAt);
+    } else {
+      filteredFiles.sort((a, b) => a.createdAt - b.createdAt);
+    }
+  }
+
+  console.log(filteredFiles);
+
   return (
     <table style={{ width: `${width}` }}>
       <thead>
@@ -39,10 +69,10 @@ export const DocumentTable = ({
         </tr>
       </thead>
       <tbody>
-        {fileList?.map((item, index) => {
+        {filteredFiles?.map((item, index) => {
           const { name, size, type, createdAt, starredAt, archivedAt, id } =
             item;
-          const fileTp = fileType(type)
+          const fileTp = fileType(type);
           return (
             <tr className="file" key={`file-${index}`}>
               <td className="file_name">
@@ -86,7 +116,7 @@ export const DocumentTable = ({
                 {removed && (
                   <div
                     onClick={() => {
-                      console.log(id)
+                      console.log(id);
                       if (pathname === "starred") {
                         dispatch(removeFromStarred(id));
                       } else {

@@ -21,7 +21,7 @@ export const Home = () => {
     useSelector((store) => store.files);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllFiles());
+    fileList.length === 0 && dispatch(getAllFiles());
   }, []);
   const homeFiles = fileList
     .map((item) => {

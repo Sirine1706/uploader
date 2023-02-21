@@ -14,7 +14,7 @@ const spaceUsedDocument = uploadedFiles.reduce((accumulator, currentValue) => {
 
 const spaceUsedImage = uploadedFiles.reduce((accumulator, currentValue) => {
   let fType = fileType(currentValue.type);
-  if (fType === "image") {
+  if (fType === "image") { 
     return accumulator + currentValue.size;
   }
   return accumulator;
@@ -112,7 +112,6 @@ const fileSlice = createSlice({
     },
   },
 });
-console.log(fileSlice, "slice");
 
 export const {
   addFile,
