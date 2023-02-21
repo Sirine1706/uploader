@@ -1,15 +1,24 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../../components/Header";
 import "./_style.scss";
 import icon from "../../assets/images/icons/aarchived.svg";
 import SortSelect from "../../components/SortSlect";
 import { DocumentTable } from "../../components/DocumentTable";
 import { archivedFileHeader } from "../../constant";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resetSearchInput } from "../../slices/searchSlice";
+import { resetSort } from "../../slices/sortSlice";
 
 export const Archived = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(resetSearchInput());
+  }, []);
+  useEffect(() => {
+    dispatch(resetSort());
+  }, []);
   const { fileList } = useSelector((store) => store.files);
   const files = fileList
     .filter((item) => item.isArchived === true)

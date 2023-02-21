@@ -15,6 +15,8 @@ import Document from "../../assets/images/icons/fileType.svg";
 import Image from "../../assets/images/icons/imageType.svg";
 import Video from "../../assets/images/icons/videoType.svg";
 import { getAllFiles } from "../../slices/fileSlice";
+import { resetSearchInput } from "../../slices/searchSlice";
+import { resetSort } from "../../slices/sortSlice";
 
 export const Home = () => {
   const { fileList, spaceUsedDocument, spaceUsedImage, spaceUsedVideo } =
@@ -22,6 +24,12 @@ export const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     fileList.length === 0 && dispatch(getAllFiles());
+  }, []);
+  useEffect(() => {
+    dispatch(resetSearchInput());
+  }, []);
+  useEffect(() => {
+    dispatch(resetSort());
   }, []);
   const homeFiles = fileList
     .map((item) => {

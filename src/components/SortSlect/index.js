@@ -13,7 +13,6 @@ export default function SortSelect({ files }) {
 
   const handleChange = (event) => {
     const value = event.target.value;
-    console.log(value, "when i dispatch the event")
     dispatch(sortTable(value));
     setChoice(value);
   };

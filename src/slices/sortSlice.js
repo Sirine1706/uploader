@@ -10,10 +10,12 @@ const sortSlice = createSlice({
   initialState,
   reducers: {
     sortTable: (state, action) => {
-      console.log(action.payload, "our payload")
       state.value = action.payload;
     },
+    resetSort:(state) => {
+      state.value = "date"
+    }
   },
 });
-export const { sortTable } = sortSlice.actions;
+export const { sortTable, resetSort } = sortSlice.actions;
 export default sortSlice.reducer;

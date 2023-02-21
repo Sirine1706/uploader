@@ -8,21 +8,41 @@ table {
   border-collapse: collapse;
   width: 90%;
 
-  
-  .name{
+  .name {
     text-align: center;
   }
   .file_name {
+    position: relative;
     display: flex;
     align-items: left;
     gap: 1.5rem;
+    span {
+      span.archive {
+        background-color: #ca024f;
+        position: absolute;
+        width: 6px;
+        height: 5px;
+        bottom: 17px;
+        left: 27px;
+        border-radius: 50%;
+      }
+      span.star {
+        background-color: #eaac30;
+        position: absolute;
+        width: 6px;
+        height: 5px;
+        bottom: 17px;
+        left: 22px;
+        border-radius: 50%;
+      }
+    }
   }
   th {
     text-align: left;
     color: $soft-grey;
     font-weight: 400;
     font-size: 16px;
-    
+
     padding: 10px 10px;
   }
   tr {
@@ -42,11 +62,14 @@ table {
       align-items: center;
       border-radius: 50%;
       padding: 5px;
-      background:#ca024f;
+      background: #ca024f;
       img {
         filter: brightness(0) invert(1);
       }
     }
-    
+    div.active {
+      background-color: #b0b0b0;
+      cursor: not-allowed;
+    }
   }
 }

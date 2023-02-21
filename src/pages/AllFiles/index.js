@@ -10,22 +10,25 @@ import { allFilesHeader } from "../../constant";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllFiles } from "../../slices/fileSlice";
 import { resetSearchInput } from "../../slices/searchSlice";
+import { resetSort } from "../../slices/sortSlice";
 
 export const AllFiles = () => {
   const { fileList } = useSelector((store) => store.files);
-  const { searchInput } = useSelector((store) => store.searchBar);
   const dispatch = useDispatch();
 
   useEffect(() => {
     fileList.length === 0 && dispatch(getAllFiles());
   }, []);
   useEffect(() => {
-    dispatch(resetSearchInput);
-  }, [searchInput]);
+    dispatch(resetSearchInput());
+  }, []);
+  useEffect(() => {
+    dispatch(resetSort());
+  }, []);
 
   const allFiles = fileList?.map((item) => {
-    const { name, size, createdAt, type, id } = item;
-    return { name, size, createdAt, type, id };
+    const { name, size, createdAt, type, id, isStarred, isArchived } = item;
+    return { name, size, createdAt, type, id, isStarred, isArchived };
   });
 
   return (

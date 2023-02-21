@@ -17,6 +17,7 @@ import {
 import { useLocation } from "react-router-dom";
 import { bytesToSize } from "../../utilities/conversion";
 import { fileType } from "../../utilities/fileType";
+import { spacing } from "@mui/system";
 
 export const DocumentTable = ({
   headerItems,
@@ -70,41 +71,62 @@ export const DocumentTable = ({
       </thead>
       <tbody>
         {filteredFiles?.map((item, index) => {
-          const { name, size, type, createdAt, starredAt, archivedAt, id } =
-            item;
+          const {
+            name,
+            size,
+            type,
+            createdAt,
+            starredAt,
+            archivedAt,
+            id,
+            isStarred,
+            isArchived,
+          } = item;
           const fileTp = fileType(type);
           return (
             <tr className="file" key={`file-${index}`}>
               <td className="file_name">
                 {(fileTp === "application" || fileTp === "text") && (
-                  <img
-                    src={file}
-                    style={{
-                      filter:
-                        " invert(13%) sepia(73%) saturate(6964%) hue-rotate(265deg) brightness(88%) contrast(116%)",
-                    }}
-                    alt="file-icon"
-                  />
+                  <span>
+                    <img
+                      src={file}
+                      style={{
+                        filter:
+                          " invert(13%) sepia(73%) saturate(6964%) hue-rotate(265deg) brightness(88%) contrast(116%)",
+                      }}
+                      alt="file-icon"
+                    />
+                    {isArchived && <span className="archive"></span>}
+                    {isStarred && <span className="star"></span>}
+                  </span>
                 )}
                 {fileTp === "image" && (
-                  <img
-                    src={image}
-                    style={{
-                      filter:
-                        "invert(25%) sepia(100%) saturate(5133%) hue-rotate(206deg) brightness(92%) contrast(104%)",
-                    }}
-                    alt="image-icon"
-                  />
+                  <span>
+                    <img
+                      src={image}
+                      style={{
+                        filter:
+                          "invert(25%) sepia(100%) saturate(5133%) hue-rotate(206deg) brightness(92%) contrast(104%)",
+                      }}
+                      alt="image-icon"
+                    />
+                    {isArchived && <span className="archive"></span>}
+                    {isStarred && <span className="star"></span>}
+                  </span>
                 )}
                 {fileTp === "video" && (
-                  <img
-                    src={video}
-                    style={{
-                      filter:
-                        "invert(31%) sepia(81%) saturate(1208%) hue-rotate(88deg) brightness(97%) contrast(106%)",
-                    }}
-                    alt="video-icon"
-                  />
+                  <span>
+                    <img
+                      src={video}
+                      style={{
+                        filter:
+                          "invert(31%) sepia(81%) saturate(1208%) hue-rotate(88deg) brightness(97%) contrast(106%)",
+                      }}
+                      alt="video-icon"
+                    />
+                    {isArchived && <span className="archive"></span>}
+                    {isStarred && <span className="star"></span>}
+                  </span>
                 )}
                 {name}
               </td>
@@ -131,7 +153,12 @@ export const DocumentTable = ({
                     onClick={() => {
                       dispatch(starredFile(id));
                     }}
-                    style={{ background: "#eaac30" }}>
+                    style={
+                      isStarred
+                        ? { background: "#b0b0b0" }
+                        : { background: "#eaac30" }
+                    }
+                    className={isStarred ? "active" : ""}>
                     <img src={star} alt="star-icon" />
                   </div>
                 )}
@@ -139,7 +166,8 @@ export const DocumentTable = ({
                   <div
                     onClick={() => {
                       dispatch(archivedFile(id));
-                    }}>
+                    }}
+                    className={isArchived ? "active" : ""}>
                     <img src={archive} alt="archive-icon" />
                   </div>
                 )}
